@@ -1,0 +1,22 @@
+server.host: 0.0.0.0
+
+elasticsearch.hosts: [${KBN_ELASTICSEARCH_HOST}]
+elasticsearch.username: ${KBN_ELASTICSEARCH_USERNAME}
+elasticsearch.password: ${KBN_ELASTICSEARCH_PASSWORD}
+
+xpack.security.encryptionKey: ${KBN_ENCRYPTION_KEY}
+xpack.encryptedSavedObjects.encryptionKey: ${KBN_ENCRYPTION_KEY}
+xpack.reporting.encryptionKey: ${KBN_ENCRYPTION_KEY}
+
+xpack.screenshotting.browser.chromium.disableSandbox: true # needed for aarch
+
+xpack.reporting.roles.enabled: FALSE
+xpack.reporting.csv.scroll.duration: 2m
+xpack.reporting.csv.maxSizeBytes: 999999999999
+
+logging:
+  loggers:
+    - name: plugins.screenshotting
+      level: debug
+    - name: plugins.reporting
+      level: debug
