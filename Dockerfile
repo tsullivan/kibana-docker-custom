@@ -1,17 +1,20 @@
 FROM ubuntu:22.04
 
 ARG ARTIFACT
-ENV KBN_ELASTICSEARCH_HOST http://host.docker.internal:9200
-ENV KBN_ELASTICSEARCH_USERNAME kibana_system
-ENV KBN_ELASTICSEARCH_PASSWORD changeme
-ENV KBN_ENCRYPTION_KEY totalencryptionkey3923J-FTEu-dfyWJ0
+ENV ELASTICSEARCH_HOSTS http://host.docker.internal:9200
+ENV ELASTICSEARCH_USERNAME kibana_system
+ENV ELASTICSEARCH_PASSWORD changeme
+ENV XPACK_SECURITY_ENCRYPTIONkEY totalencryptionkey3923J-FTEu-dfyWJ0
+ENV XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY totalencryptionkey3923J-_TEu-dfyWJ0
+ENV XPACK_REPORTING_ENCRYPTIONKEY totalencryptionkey3923J-_TEu-dfyWJ0
+
 
 RUN for iter in {1..10}; do \
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get update  && \
     apt-get upgrade -y  && \
     apt-get install -y --no-install-recommends \
-     fontconfig fonts-liberation libnss3 libfontconfig1 ca-certificates curl && \
+     fontconfig fonts-liberation libnss3 libfontconfig1 ca-certificates curl vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && exit_code=0 && break || exit_code=$? && echo "apt-get error: retry $iter in 10s" && \
     sleep 10; \
