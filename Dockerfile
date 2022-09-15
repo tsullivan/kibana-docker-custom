@@ -18,6 +18,7 @@ RUN for iter in {1..10}; do \
   done; \
   (exit $exit_code)
 
+# Install international character fonts
 RUN mkdir /usr/share/fonts/local
 RUN curl --retry 8 -S -L -o /usr/share/fonts/local/NotoSansCJK-Regular.ttc https://github.com/googlefonts/noto-cjk/raw/NotoSansV2.001/NotoSansCJK-Regular.ttc
 RUN echo "5dcd1c336cc9344cb77c03a0cd8982ca8a7dc97d620fd6c9c434e02dcb1ceeb3  /usr/share/fonts/local/NotoSansCJK-Regular.ttc" | sha256sum -c -
