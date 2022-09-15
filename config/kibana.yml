@@ -1,8 +1,8 @@
 server.host: 0.0.0.0
 
-elasticsearch.hosts: [${KBN_ELASTICSEARCH_HOST}]
-elasticsearch.username: ${KBN_ELASTICSEARCH_USERNAME}
-elasticsearch.password: ${KBN_ELASTICSEARCH_PASSWORD}
+elasticsearch.hosts: ["${KBN_ELASTICSEARCH_HOST}"]
+elasticsearch.username: "${KBN_ELASTICSEARCH_USERNAME}"
+elasticsearch.password: "${KBN_ELASTICSEARCH_PASSWORD}"
 
 xpack.security.encryptionKey: ${KBN_ENCRYPTION_KEY}
 xpack.encryptedSavedObjects.encryptionKey: ${KBN_ENCRYPTION_KEY}
