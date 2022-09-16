@@ -14,17 +14,12 @@ RUN for iter in {1..10}; do \
     apt-get update  && \
     apt-get upgrade -y  && \
     apt-get install -y --no-install-recommends \
-     fontconfig fonts-liberation libnss3 libfontconfig1 ca-certificates curl vim && \
+     libnss3 ca-certificates curl vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && exit_code=0 && break || exit_code=$? && echo "apt-get error: retry $iter in 10s" && \
     sleep 10; \
   done; \
   (exit $exit_code)
-
-RUN mkdir /usr/share/fonts/local
-RUN curl --retry 8 -S -L -o /usr/share/fonts/local/NotoSansCJK-Regular.ttc https://github.com/googlefonts/noto-cjk/raw/NotoSansV2.001/NotoSansCJK-Regular.ttc
-RUN echo "5dcd1c336cc9344cb77c03a0cd8982ca8a7dc97d620fd6c9c434e02dcb1ceeb3  /usr/share/fonts/local/NotoSansCJK-Regular.ttc" | sha256sum -c -
-RUN fc-cache -v
 
 RUN mkdir /usr/share/kibana
 WORKDIR /usr/share/kibana
