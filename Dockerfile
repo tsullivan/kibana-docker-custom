@@ -14,7 +14,7 @@ RUN for iter in {1..10}; do \
     apt-get update  && \
     apt-get upgrade -y  && \
     apt-get install -y --no-install-recommends \
-     libnss3 ca-certificates curl vim && \
+     fontconfig libnss3 ca-certificates curl vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && exit_code=0 && break || exit_code=$? && echo "apt-get error: retry $iter in 10s" && \
     sleep 10; \

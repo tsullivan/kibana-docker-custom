@@ -4,6 +4,12 @@
 ```
 
 ## Run
+**Start the container interactively**
 ```
  docker run -it -p 127.0.0.1:5777:5601 --rm --env KBN_ELASTICSEARCH_HOST=http://host.docker.internal:9200 kibana-aarch:8.5.0
+
+```
+**In the container, run Kibana interactively**
+```
+./bin/kibana
 ```
