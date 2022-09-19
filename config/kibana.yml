@@ -1,12 +1,12 @@
 server.host: 0.0.0.0
 
-elasticsearch.hosts: ["${KBN_ELASTICSEARCH_HOST}"]
-elasticsearch.username: "${KBN_ELASTICSEARCH_USERNAME}"
-elasticsearch.password: "${KBN_ELASTICSEARCH_PASSWORD}"
+elasticsearch.hosts: ["${ELASTICSEARCH_HOSTS}"]
+elasticsearch.username: "${ELASTICSEARCH_USERNAME}"
+elasticsearch.password: "${ELASTICSEARCH_PASSWORD}"
 
-xpack.security.encryptionKey: ${KBN_ENCRYPTION_KEY}
-xpack.encryptedSavedObjects.encryptionKey: ${KBN_ENCRYPTION_KEY}
-xpack.reporting.encryptionKey: ${KBN_ENCRYPTION_KEY}
+xpack.security.encryptionKey: ${XPACK_SECURITY_ENCRYPTIONKEY}
+xpack.encryptedSavedObjects.encryptionKey: ${XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY}
+xpack.reporting.encryptionKey: ${XPACK_REPORTING_ENCRYPTIONKEY}
 
 xpack.screenshotting.browser.chromium.disableSandbox: true # needed for aarch
 
